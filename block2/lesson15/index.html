@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>counter {{counter}} \ {{counter1}}</h2>
+        <h3>Result: {{result()}}</h3>
+        <h3>Computed result: {{computedRes}}</h3>
+        <button @click="add">add</button>
+        <button @click="sub">sub</button>
+        <button @click ="counter1++">add counter 1</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                counter: 0,
+                counter1: 0
+            },
+            methods:{
+                add: function(){
+                    this.counter++;
+                },
+                sub: function(){
+                    this.counter--;
+                },
+                result: function(){
+                    console.log("METHODS");
+                    return this.counter > 3 ? "More than 3" : "Less than 3";
+                }
+            },
+            computed: {
+                computedRes: function(){
+                    console.log("COMPUTED");
+                    return this.counter > 3 ? "More than 3" : "Less than 3";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
