@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle{
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <div class="circle" :style="{'background-color': color, 'height': height+'px'}"></div> -->
+        <div class="circle" :style="circleClasses"></div>
+        <div class="circle" :style="[circleClasses, {'width': height+'px'}]"></div>
+        <hr>
+        <input type="text" v-model="color">
+        <input type="text" v-model="height">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                height: 100,
+                color: ""
+            },
+            computed: {
+               circleClasses: function(){
+                   return{
+                    'background-color': this.color, 
+                    'height': this.height+'px'
+                   }
+               }
+            }
+        })
+    </script>
+</body>
+</html>
