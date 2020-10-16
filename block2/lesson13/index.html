@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <h2 v-if="isVisible">i am visible</h2>
+        <h2 v-else>no i am not!</h2> --> <!-- v-if - удаляет элементы из DOM-->
+        <h2 v-show="isVisible">i am visible</h2>
+        <h2 v-show="!isVisible">no i am not!</h2><!--v-show - не удаляет элементы из DOM только визуально скрывает-->
+        <button @click="isVisible = !isVisible">toggle</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                isVisible: true
+            }
+        })
+    </script>
+</body>
+</html>
