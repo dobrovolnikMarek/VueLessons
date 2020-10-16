@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2 ref="heading">{{title}}</h2> <!-- ref - доступ к DOM элементам 
+            то есть ref === querySelector и тд-->
+        <button ref="btn" @click="updatedFirstTitile">Update title</button>
+        <hr ref="horLine">
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+     new Vue({
+            el: "#app",
+            data: {
+                title: "Hello i'm Vue"
+            },
+            methods:{
+                updatedFirstTitile: function(){
+                    this.title = "New Title"; 
+                    this.$refs.heading.style.color= "red";
+                    console.log(this.$refs);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
