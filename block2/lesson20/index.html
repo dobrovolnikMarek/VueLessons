@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <button @click="title = 'New Title'">Update</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                title: "Hello i'm Vue"
+            },
+            beforeCreate: function(){
+                console.log("beforeCreate");
+            },
+            created: function(){
+                console.log("created");
+            }, 
+            beforeMount: function(){
+                console.log("beforeMount");
+            }, 
+            mounted:function(){
+                console.log("mounted");
+            },
+            beforeUpdate: function(){
+                console.log("beforeUpdate");
+            },
+            updated: function(){
+                console.log("updated");
+            },
+            beforeDestroy: function(){
+                console.log("beforeDestroy");
+            },
+            destroyed: function(){
+                console.log("destroyed");
+            }
+            
+        });
+        //Жизненный цикл компонента:
+        //1) beforeCreate() вызывается тогда когда произошла иницилизация 
+        //   и Vue готовится создать новое приложение 
+        //2) created() на этом этапе Vue приложение уже будет создано 
+        //3) beforeMount() Vue анализирует шаблон и он соберается его уже вставить в div#app
+        //   то есть Vue готовится вставить уже скомпилированый шаблон в DOM дерево
+        //4) mounted() говорит что HTML уже готов и уже вставлен в DOM 
+        //5) beforeUpdate() вызывается перед тем как что-то изменилось 
+        //6) updated() вызывается после того как что-то изменилось 
+    </script>
+</body>
+</html>
