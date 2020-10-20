@@ -11,11 +11,17 @@
 </template>
 
 <script>
-import ListMixin from "./listMixin.js"//Если в приложении есть набор общей функциональности, 
+import ListMixin from "./listMixin.js"//Локальный миксин
+                                      //Если в приложении есть набор общей функциональности, 
                                       //то необязательно дублировать код достаточно использовать миксины
 
 export default {
   name: 'App',
+  data(){
+    return{
+      title: "HELLO"
+    }
+  },
   mixins:[ListMixin],
   filters: {//Фильтры влияют только на отображение!!! Все фильтры создаются самостоятельно
     lowercase(value){
